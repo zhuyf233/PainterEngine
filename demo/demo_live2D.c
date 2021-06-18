@@ -2,9 +2,7 @@
 #include "PX_App.h"
 #include "px_file.h"
 
-#define PKG_USING_DEMO_LIVE2D
-
-#ifdef PKG_USING_DEMO_LIVE2D
+#ifdef PKG_PAINTERENGINE_USING_DEMO_LIVE2D
 
 PX_LiveFramework liveframework;
 px_bool PX_ApplicationInitialize(PX_Application *pApp,px_int screen_width,px_int screen_height)

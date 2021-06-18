@@ -3,7 +3,7 @@
 #include "PX_App.h"
 #include "px_file.h"
 
-#ifdef PKG_USING_DEMO_2DX
+#ifdef PKG_PAINTERENGINE_USING_DEMO_2DX
 
 PX_Animationlibrary animationLibrary;
 PX_Animation animation;

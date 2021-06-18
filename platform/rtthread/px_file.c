@@ -1,4 +1,7 @@
 #include <rtthread.h>
+
+#ifdef PKG_PAINTERENGINE_USING_FILESYSTEM
+
 #include <dfs_posix.h>
 #include "px_file.h"
 
@@ -66,3 +69,6 @@ void PX_FreeIOData(PX_IO_Data *io)
         io->buffer=0;
     }
 }
+
+#endif
+

@@ -3,7 +3,7 @@
 #include "PX_App.h"
 #include "px_file.h"
 
-#ifdef PKG_USING_DEMO_3DBUNNY
+#ifdef PKG_PAINTERENGINE_USING_DEMO_3DBUNNY
 
 px_surface _3drenderTarget;
 PX_3D_RenderList renderlist;

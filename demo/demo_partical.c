@@ -3,7 +3,7 @@
 #include "PX_App.h"
 #include "px_file.h"
 
-#ifdef PKG_USING_DEMO_PARTICAL
+#ifdef PKG_PAINTERENGINE_USING_DEMO_PARTICAL
 
 PX_Partical_Launcher launcher;
 px_texture texture;
