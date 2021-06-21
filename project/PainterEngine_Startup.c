@@ -10,7 +10,7 @@ px_bool PX_ApplicationInitializeDefault(PX_Runtime *runtime, px_int screen_width
     PX_ApplicationRuntime = rt_malloc(runtime_mem_size);
     if(PX_ApplicationRuntime == RT_NULL)
     {
-        rt_kprintf("No memory for PainterEngine application!\n");
+        rt_kprintf("No memory for PainterEngine runtime!\n");
         return PX_FALSE;
     }
     if(!PX_RuntimeInitialize(runtime,
