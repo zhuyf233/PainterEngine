@@ -1916,7 +1916,7 @@ px_bool PX_ScriptAsmCompile(px_memorypool *mp,px_char *asmcode,px_memory *binmem
 	pheader=(PX_SCRIPT_ASM_HEADER *)binmemory->buffer;
 	pheader->binsize=binsize;
 
-	pheader->CRC=PX_crc32(binmemory->buffer+8,binmemory->usedsize-8);
+	pheader->pxCRC=PX_crc32(binmemory->buffer+8,binmemory->usedsize-8);
 
 	//pTexpfunc=(PX_SCRIPT_EXPORT_FUNCTION *)(binmemory->buffer+header.oftfunc);
 

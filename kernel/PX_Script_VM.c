@@ -52,7 +52,7 @@ px_bool PX_ScriptVM_InstanceInitialize(PX_ScriptVM_Instance *Ins,px_memorypool *
 		return PX_FALSE;
 	}
 
-	if (PX_crc32(code+8,size-8)!=header->CRC)
+	if (PX_crc32(code+8,size-8)!=header->pxCRC)
 	{
 		return PX_FALSE;
 	}
