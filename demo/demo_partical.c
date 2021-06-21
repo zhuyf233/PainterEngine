@@ -1,6 +1,6 @@
 #include <rtthread.h>
-#include "PX_Init.h"
-#include "PX_App.h"
+#include "PainterEngine_Startup.h"
+#include "PainterEngine_Application.h"
 #include "px_file.h"
 
 #ifdef PKG_PAINTERENGINE_USING_DEMO_PARTICAL

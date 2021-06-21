@@ -1,6 +1,6 @@
 #include <rtthread.h>
 #include <rtdevice.h>
-#include "PX_App.h"
+#include "PainterEngine_Application.h"
 #include "px_display.h"
 
 PX_Application App;
