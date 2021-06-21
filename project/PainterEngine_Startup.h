@@ -1,20 +1,18 @@
-#ifndef PAINTERENGINE_STARTUP_H
-#define PAINTERENGINE_STARTUP_H
+#ifndef _PX_INIT_H_
+#define _PX_INIT_H_
 
-//////////////////////////////////////////////////////////////////////////
-//Configures
-#include "platform/modules/px_file.h"
+#include "PX_Kernel.h"
+#include "px_file.h"
 
 #define PX_APPLICATION_NAME "PainterEngine"
-#define PX_APPLICATION_SURFACE_SIZE 680
 
-#define PX_APPLICATION_MEMORYPOOL_UI_SIZE 1024*1024*16
-#define PX_APPLICATION_MEMORYPOOL_RESOURCES_SIZE 1024*1024*96
-#define PX_APPLICATION_MEMORYPOOL_GAME_SIZE 1024*1024*8
-#define PX_APPLICATION_MEMORYPOOL_SPACE_SIZE 1024*1024*8
+#define PX_APPLICATION_MEMORYPOOL_UI_SIZE PKG_PAINTERENGINE_MEMORYPOOL_UI_SIZE*1024
+#define PX_APPLICATION_MEMORYPOOL_RESOURCES_SIZE PKG_PAINTERENGINE_MEMORYPOOL_RESOURCES_SIZE*1024
+#define PX_APPLICATION_MEMORYPOOL_GAME_SIZE PKG_PAINTERENGINE_MEMORYPOOL_GAME_SIZE*1024
+#define PX_APPLICATION_MEMORYPOOL_SPACE_SIZE PKG_PAINTERENGINE_MEMORYPOOL_SPACE_SIZE*1024
 //////////////////////////////////////////////////////////////////////////
 
-#include "architecture/PainterEngine_Runtime.h"
+#include "PainterEngine_Runtime.h"
 px_bool PX_ApplicationInitializeDefault(PX_Runtime *runtime, px_int screen_width, px_int screen_height);
 px_void PX_ApplicationEventDefault(PX_Runtime *runtime,PX_Object_Event e);
 
@@ -34,6 +32,5 @@ px_bool PX_LoadSoundToResource(PX_ResourceLibrary *presourcelib,const px_char Pa
 px_bool PX_LoadFontModuleFromFile(PX_FontModule *fm,const px_char Path[]);
 px_bool PX_LoadJsonFromFile(PX_Json *json,const px_char *path);
 #endif
-
 
 #endif
