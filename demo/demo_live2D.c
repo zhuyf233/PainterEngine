@@ -9,11 +9,19 @@ px_bool PX_ApplicationInitialize(PX_Application *pApp,px_int screen_width,px_int
 {
 	PX_IO_Data iodata;
 	PX_ApplicationInitializeDefault(&pApp->runtime, screen_width, screen_height);
-	iodata=PX_LoadFileToIOData("sdcard/release.live");
-	if(iodata.size==0)
-	{
-	    rt_kprintf("Can not load file 'sdcard/release.live'\n");
-	    return PX_FALSE;
+	for(rt_uint8_t i = 0; i < 5; i++)
+    {
+	    iodata=PX_LoadFileToIOData("sdcard/release.live");
+	    if(iodata.size > 0)
+	    {
+	        break;
+	    }
+	    else if(i == 4)
+	    {
+	        rt_kprintf("Can not load file 'sdcard/release.live'\n");
+	        return PX_FALSE;
+	    }
+	    rt_thread_mdelay(500);
     }
 	PX_LiveFrameworkImport(&pApp->runtime.mp_resources,&liveframework,iodata.buffer,iodata.size);
 	PX_FreeIOData(&iodata);

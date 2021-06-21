@@ -31,12 +31,21 @@ px_bool PX_ApplicationInitialize(PX_Application *pApp,px_int screen_width,px_int
     PX_ApplicationInitializeDefault(&pApp->runtime, screen_width, screen_height);
     PX_SurfaceCreate(&pApp->runtime.mp_game,600,600,&_3drenderTarget);
     PX_3D_ObjectDataInitialize(&pApp->runtime.mp_game,&Obj);
-    io=PX_LoadFileToIOData("sdcard/bunny.obj");
-    if(io.size==0)
+    for(rt_uint8_t i = 0; i < 5; i++)
     {
-        rt_kprintf("Can not load file 'sdcard/bunny.obj'\n");
-        return PX_FALSE;
+        io=PX_LoadFileToIOData("sdcard/bunny.obj");
+        if(io.size > 0)
+        {
+            break;
+        }
+        else if(i == 4)
+        {
+            rt_kprintf("Can not load file 'sdcard/bunny.obj'\n");
+            return PX_FALSE;
+        }
+        rt_thread_mdelay(500);
     }
+
     if(!PX_3D_ObjectDataLoad(&Obj,io.buffer,io.size))return PX_FALSE;
 
     PX_3D_RenderListInitialize(&pApp->runtime.mp_game,&renderlist,PX_3D_PRESENTMODE_TEXTURE|PX_3D_PRESENTMODE_PURE,PX_3D_CULLMODE_CCW,PX_NULL);

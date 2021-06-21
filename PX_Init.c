@@ -36,11 +36,19 @@ px_bool PX_LoadTextureFromFile(px_memorypool *mp,px_texture *tex,const px_char p
 {
     PX_IO_Data io;
 
-    io=PX_LoadFileToIOData(path);
-    if (!io.size)
+    for(rt_uint8_t i = 0; i < 5; i++)
     {
-        rt_kprintf("Can not load file\n");
-        return PX_FALSE;
+        io=PX_LoadFileToIOData(path);
+        if(io.size > 0)
+        {
+            break;
+        }
+        else if(i == 4)
+        {
+            rt_kprintf("Can not load file %s\n", path);
+            return PX_FALSE;
+        }
+        rt_thread_mdelay(500);
     }
     if (PX_TextureCreateFromMemory(mp,io.buffer,io.size,tex))
     {
@@ -54,11 +62,19 @@ px_bool PX_LoadTextureFromFile(px_memorypool *mp,px_texture *tex,const px_char p
 px_bool PX_LoadAnimationLibraryFromFile(px_memorypool *mp,PX_Animationlibrary *lib,const px_char path[])
 {
     PX_IO_Data io;
-    io=PX_LoadFileToIOData(path);
-    if (!io.size)
+    for(rt_uint8_t i = 0; i < 5; i++)
     {
-        rt_kprintf("Can not load file\n");
-        return PX_FALSE;
+        io=PX_LoadFileToIOData(path);
+        if(io.size > 0)
+        {
+            break;
+        }
+        else if(i == 4)
+        {
+            rt_kprintf("Can not load file %s\n", path);
+            return PX_FALSE;
+        }
+        rt_thread_mdelay(500);
     }
     if (PX_AnimationLibraryCreateFromMemory(mp,lib,io.buffer,io.size))
     {
